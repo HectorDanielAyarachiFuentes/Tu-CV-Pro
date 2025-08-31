@@ -144,9 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="layout-card \${cvData.layout==='executive'?'active':''}" data-layout="executive"><img src="img/ejecutivo.png" alt="Ejecutivo"><p>Ejecutivo</p></div>
         <div class="layout-card \${cvData.layout==='creative'?'active':''}" data-layout="creative"><img src="img/creativo.png" alt="Creativo"><p>Creativo</p></div>
         <div class="layout-card \${cvData.layout==='minimalist'?'active':''}" data-layout="minimalist"><img src="img/minimalista.png" alt="Minimalista"><p>Minimalista</p></div>
-        <div class="layout-card \${cvData.layout==='corporate'?'active':''}" data-layout="corporate"><img src="https://i.imgur.com/v8CoKg4.png" alt="Corporativo"><p>Corporativo</p></div>
-        <div class="layout-card \${cvData.layout==='technical'?'active':''}" data-layout="technical"><img src="https://i.imgur.com/39w8A1N.png" alt="Técnico"><p>Técnico</p></div>
-        <div class="layout-card \${cvData.layout==='infographic'?'active':''}" data-layout="infographic"><img src="https://i.imgur.com/8Qp4kXm.png" alt="Infográfico"><p>Infográfico</p></div>
+        <div class="layout-card \${cvData.layout==='corporate'?'active':''}" data-layout="corporate"><img src="img/coporativo.png" alt="Corporativo"><p>Corporativo</p></div>
+        <div class="layout-card \${cvData.layout==='technical'?'active':''}" data-layout="technical"><img src="img/tecnico.png" alt="Técnico"><p>Técnico</p></div>
+        <div class="layout-card \${cvData.layout==='infographic'?'active':''}" data-layout="infographic"><img src="img/infografico.png" alt="Infográfico"><p>Infográfico</p></div>
         <div class="layout-card \${cvData.layout==='academic'?'active':''}" data-layout="academic"><img src="https://i.imgur.com/p51aSP9.png" alt="Académico"><p>Académico</p></div>
         <div class="layout-card \${cvData.layout==='visionary'?'active':''}" data-layout="visionary"><img src="https://i.imgur.com/L3Zp7Tf.png" alt="Visionario"><p>Visionario</p></div>
         <div class="layout-card \${cvData.layout==='swiss'?'active':''}" data-layout="swiss"><img src="https://i.imgur.com/1nGsJ2v.png" alt="Suizo"><p>Suizo</p></div>
