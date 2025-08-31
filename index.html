@@ -22,49 +22,51 @@
                 <p>Crea un currículum profesional en minutos.</p>
             </header>
 
-            <nav class="editor-nav">
-                <a href="#welcome" class="nav-item active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10"/></svg>
-                    Bienvenida
-                </a>
-                 <a href="#design" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6.4 6.4 0 0 0-6.4 6.4c0 2.2 1.8 4 4 4h4.8a4 4 0 0 1 4 4c0 2.2-1.8 4-4 4a6.4 6.4 0 0 1-6.4-6.4m12.8 0a6.4 6.4 0 0 0-6.4-6.4c-2.2 0-4 1.8-4 4v4.8a4 4 0 0 1-4 4c-2.2 0-4-1.8-4-4a6.4 6.4 0 0 1 6.4-6.4"/></svg>
-                    Diseño
-                </a>
-                <a href="#avatar" class="nav-item">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11a4 4 0 1 0 0-8a4 4 0 0 0 0 8"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.5 22a7.1 7.1 0 0 0-13 0"/></svg>
-                    Avatar
-                </a>
-                <a href="#personal" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    Personal
-                </a>
-                <a href="#experience" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
-                    Experiencia
-                </a>
-                <a href="#education" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22v-6m-6-3l6 4l6-4m-6-9V2"/></svg>
-                    Educación
-                </a>
-                <a href="#skills" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.97 3.23c.304-.76.99-.958 1.488-.523c.498.435.418 1.18-.184 1.577l-4.242 2.76A2 2 0 0 0 9 8.718V13a2 2 0 1 0 4 0V9m2-5a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2zM8 21a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2z"/></svg>
-                    Habilidades
-                </a>
-                <!-- === NUEVO BOTÓN AQUÍ === -->
-                <a href="#impacts" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    Impacto
-                </a>
-                <a href="#footer" class="nav-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>
-                    Footer
-                </a>
-            </nav>
+            <!-- Contenedor para la nueva disposición Flex -->
+            <div class="editor-content-area">
+                <nav class="editor-nav">
+                    <a href="#welcome" class="nav-item active" data-title="Bienvenida">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10"/></svg>
+                        <span>Bienvenida</span>
+                    </a>
+                    <a href="#design" class="nav-item" data-title="Diseño">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6.4 6.4 0 0 0-6.4 6.4c0 2.2 1.8 4 4 4h4.8a4 4 0 0 1 4 4c0 2.2-1.8 4-4 4a6.4 6.4 0 0 1-6.4-6.4m12.8 0a6.4 6.4 0 0 0-6.4-6.4c-2.2 0-4 1.8-4 4v4.8a4 4 0 0 1-4 4c-2.2 0-4-1.8-4-4a6.4 6.4 0 0 1 6.4-6.4"/></svg>
+                        <span>Diseño</span>
+                    </a>
+                    <a href="#avatar" class="nav-item" data-title="Avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11a4 4 0 1 0 0-8a4 4 0 0 0 0 8"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.5 22a7.1 7.1 0 0 0-13 0"/></svg>
+                        <span>Avatar</span>
+                    </a>
+                    <a href="#personal" class="nav-item" data-title="Personal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span>Personal</span>
+                    </a>
+                    <a href="#experience" class="nav-item" data-title="Experiencia">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+                        <span>Experiencia</span>
+                    </a>
+                    <a href="#education" class="nav-item" data-title="Educación">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22v-6m-6-3l6 4l6-4m-6-9V2"/></svg>
+                        <span>Educación</span>
+                    </a>
+                    <a href="#skills" class="nav-item" data-title="Habilidades">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.97 3.23c.304-.76.99-.958 1.488-.523c.498.435.418 1.18-.184 1.577l-4.242 2.76A2 2 0 0 0 9 8.718V13a2 2 0 1 0 4 0V9m2-5a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2zM8 21a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2z"/></svg>
+                        <span>Habilidades</span>
+                    </a>
+                    <a href="#impacts" class="nav-item" data-title="Impacto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <span>Impacto</span>
+                    </a>
+                    <a href="#footer" class="nav-item" data-title="Footer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>
+                        <span>Footer</span>
+                    </a>
+                </nav>
 
-            <main id="form-section-wrapper" class="form-scroll-wrapper">
-                <!-- Secciones de formulario se cargarán aquí con JS -->
-            </main>
+                <main id="form-section-wrapper" class="form-scroll-wrapper">
+                    <!-- Secciones de formulario se cargarán aquí con JS -->
+                </main>
+            </div>
         </aside>
 
         <!-- Panel de Vista Previa (Derecha) -->
