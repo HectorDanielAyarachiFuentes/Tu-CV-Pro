@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             firstName: 'Hector Daniel', 
             lastName: 'Ayarachi Fuentes', 
             title: 'Desarrollador de Software', 
-            email: 'mp4o@hotmail.com', 
-            phone: '2995056213', 
+            email: 'mp4o@yahoo.com', 
+            phone: '2995056200', 
             address: 'Neuquen, Argentina', 
             website: 'linkedin.com/in/hector-daniel-ayarachi-fuentes/', 
             summary: 'Soy un desarrollador de software con una sólida experiencia en la creación de aplicaciones web escalables y eficientes. Mi enfoque principal se centra en el desarrollo backend, donde tengo un profundo conocimiento de Python y el ecosistema de AWS. Además, he trabajado en proyectos de DevOps para mejorar la eficiencia y la automatización de los procesos de desarrollo.' 
