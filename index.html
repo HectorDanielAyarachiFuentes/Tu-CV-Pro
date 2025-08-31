@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de CV Moderno</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body data-theme="gray">
+
+    <div class="cv-builder-container">
+        <!-- Panel de Edición (Izquierda) -->
+        <aside class="editor-panel">
+            <header class="editor-header">
+                <h1 class="main-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    <span>Tu CV Pro</span>
+                </h1>
+                <p>Crea un currículum profesional en minutos.</p>
+            </header>
+
+            <nav class="editor-nav">
+                <a href="#welcome" class="nav-item active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10"/></svg>
+                    Bienvenida
+                </a>
+                 <a href="#design" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6.4 6.4 0 0 0-6.4 6.4c0 2.2 1.8 4 4 4h4.8a4 4 0 0 1 4 4c0 2.2-1.8 4-4 4a6.4 6.4 0 0 1-6.4-6.4m12.8 0a6.4 6.4 0 0 0-6.4-6.4c-2.2 0-4 1.8-4 4v4.8a4 4 0 0 1-4 4c-2.2 0-4-1.8-4-4a6.4 6.4 0 0 1 6.4-6.4"/></svg>
+                    Diseño
+                </a>
+                <a href="#avatar" class="nav-item">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11a4 4 0 1 0 0-8a4 4 0 0 0 0 8"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.5 22a7.1 7.1 0 0 0-13 0"/></svg>
+                    Avatar
+                </a>
+                <a href="#personal" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Personal
+                </a>
+                <a href="#experience" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+                    Experiencia
+                </a>
+                <a href="#education" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22v-6m-6-3l6 4l6-4m-6-9V2"/></svg>
+                    Educación
+                </a>
+                <a href="#skills" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.97 3.23c.304-.76.99-.958 1.488-.523c.498.435.418 1.18-.184 1.577l-4.242 2.76A2 2 0 0 0 9 8.718V13a2 2 0 1 0 4 0V9m2-5a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2zM8 21a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2z"/></svg>
+                    Habilidades
+                </a>
+                <a href="#footer" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18M3 9h18M3 3h18M3 21h18"/></svg>
+                    Footer
+                </a>
+            </nav>
+
+            <main id="form-section-wrapper" class="form-scroll-wrapper">
+                <!-- Secciones de formulario se cargarán aquí con JS -->
+            </main>
+        </aside>
+
+        <!-- Panel de Vista Previa (Derecha) -->
+        <section class="preview-panel">
+            <header class="preview-header">
+                <button id="download-pdf-btn" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Descargar PDF
+                </button>
+            </header>
+            <div id="cv-preview-wrapper">
+                <!-- El CV se previsualizará aquí -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
