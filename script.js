@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: Date.now() + 14, description: 'Reduje los costos de infraestructura en AWS en un 25% mediante la optimización de instancias EC2.' }
         ],
         footer: [
-            { id: Date.now() + 7, type: 'email', label: '', value: 'mp4o@hotmail.com'},
+            { id: Date.now() + 7, type: 'email', label: '', value: 'mp4o@yahoo.com'},
             { id: Date.now() + 8, type: 'linkedin', label: 'LinkedIn', value: 'in/hector-daniel-ayarachi-fuentes/'},
             { id: Date.now() + 9, type: 'text', label: '', value: 'Referencias disponibles a petición.'}
         ],
