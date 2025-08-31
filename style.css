@@ -75,7 +75,7 @@ body {
     border-bottom: 1px solid var(--color-border);
 }
 #cv-preview-wrapper {
-    display: grid; /* <<< SOLUCIÓN ESTRUCTURAL PARA EL FONDO CORTADO */
+    display: grid;
     background-color: var(--color-white);
     aspect-ratio: 210 / 297;
     width: 100%;
@@ -131,6 +131,11 @@ input[type="color"]::-webkit-color-swatch { border: 2px solid var(--color-border
 .icon-option { border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 0.5rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease; }
 .icon-option:hover { border-color: var(--primary-accent); background: color-mix(in srgb, var(--primary-accent) 10%, transparent); }
 .icon-option.active { border-color: var(--primary-accent); background: var(--primary-accent); color: white; }
+#footer-form { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; }
+.footer-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: var(--radius-sm); }
+.footer-item span { font-weight: 500; }
+.footer-item p { color: var(--color-muted-text); }
+.footer-item svg { flex-shrink: 0; }
 #cv-template h1, #cv-template h2, #cv-template h3, #cv-template h4, #cv-template p { margin:0; line-height: 1.5; }
 #cv-template a { text-decoration: none; }
 #cv-template .section-title { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -170,8 +175,10 @@ input[type="color"]::-webkit-color-swatch { border: 2px solid var(--color-border
         overflow: visible !important;
     }
     #cv-preview-wrapper {
+        display: grid !important; /* Mantiene el grid para que las columnas se estiren */
         width: 100% !important;
         height: auto !important;
+        min-height: 297mm; /* Asegura que al menos ocupe una página A4 */
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
