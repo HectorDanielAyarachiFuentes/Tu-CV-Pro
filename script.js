@@ -114,31 +114,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const renderExperienceItem = (e) => `<div style="margin-bottom:1.2rem"><div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="font-size:.9rem;font-weight:600">${e.position||''}</h4><p style="font-size:.75rem;font-weight:500;color:#555;white-space:nowrap;margin-left:1rem">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p></div><p style="font-size:.85rem;font-style:italic;margin-bottom:.3rem">${e.company||''}</p><p style="font-size:.8rem;white-space:pre-wrap;line-height:1.5">${e.description||''}</p></div>`;
         const renderEducationItem = (e) => `<div style="margin-bottom:1rem"><div style="display:flex;justify-content:space-between;align-items:baseline"><h4 style="font-size:.9rem;font-weight:600">${e.degree||''}</h4><p style="font-size:.75rem;font-weight:500;color:#555;white-space:nowrap;margin-left:1rem">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p></div><p style="font-size:.85rem;font-style:italic;margin-bottom:.3rem">${e.institution||''}</p><p style="font-size:.8rem;white-space:pre-wrap;line-height:1.5">${e.description||''}</p></div>`;
         
-        templates.classic = (data) => `<div id="cv-template" style="display:flex; height:100%;"><div style="width:35%;background-color:${data.themeColor};color:white;padding:2rem;display:flex;flex-direction:column;gap:2rem">${renderAvatarContainer(data, `<div style="width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto;border:4px solid white;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,0.3)">${renderAvatar(data)}</div>`)}<div><h3 style="font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:.5rem;margin-bottom:1rem">CONTACTO</h3>${data.personalInfo.phone?`<p style="font-size:.75rem;margin-bottom:.7rem"><strong>Teléfono:</strong><br>${data.personalInfo.phone}</p>`:''}${data.personalInfo.email?`<p style="font-size:.75rem;margin-bottom:.7rem;word-break:break-all"><strong>Email:</strong><br>${data.personalInfo.email}</p>`:''}${data.personalInfo.address?`<p style="font-size:.75rem;margin-bottom:.7rem"><strong>Dirección:</strong><br>${data.personalInfo.address}</p>`:''}${data.personalInfo.website?`<p style="font-size:.75rem;word-break:break-all"><strong>Web:</strong><br><a href="https://${data.personalInfo.website}" target="_blank" style="color:white;text-decoration:none">${data.personalInfo.website}</a></p>`:''}</div>${data.skills.length>0?`<div><h3 style="font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:.5rem;margin-bottom:1rem">HABILIDADES</h3>${data.skills.map(s=>`<p style="font-size:.8rem;margin-bottom:.4rem">${s.name}<span style="font-size:.7rem;opacity:.8"> (${levelLabels[s.level]})</span></p>`).join('')}</div>`:''}</div><div style="width:65%; color:#333; display:flex; flex-direction:column;"><div style="padding:2.5rem; flex-grow:1;"><h1 style="font-family: var(--font-heading); font-size:2.3rem;font-weight:700;color:${data.themeColor};line-height:1.2;margin-bottom:.2rem">${data.personalInfo.firstName || ''}<br>${data.personalInfo.lastName || ''}</h1><h2 style="font-family: var(--font-heading); font-size:1.1rem;font-weight:500;margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:.75rem">${data.personalInfo.title||''}</h2>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</div>${renderFooter(data)}</div></div>`;
+        // --- INICIO DE PLANTILLAS MODIFICADAS ---
+        templates.classic = (data) => `<div id="cv-template" style="display:flex; height:100%;"><div style="width:35%;background-color:${data.themeColor};color:white;padding:2rem;display:flex;flex-direction:column;gap:2rem">${renderAvatarContainer(data, `<div style="width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto;border:4px solid white;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,0.3)">${renderAvatar(data)}</div>`)}<div><h3 style="font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:.5rem;margin-bottom:1rem">CONTACTO</h3>${data.personalInfo.phone?`<p style="font-size:.75rem;margin-bottom:.7rem"><strong>Teléfono:</strong><br>${data.personalInfo.phone}</p>`:''}${data.personalInfo.email?`<p style="font-size:.75rem;margin-bottom:.7rem;word-break:break-all"><strong>Email:</strong><br>${data.personalInfo.email}</p>`:''}${data.personalInfo.address?`<p style="font-size:.75rem;margin-bottom:.7rem"><strong>Dirección:</strong><br>${data.personalInfo.address}</p>`:''}${data.personalInfo.website?`<p style="font-size:.75rem;word-break:break-all"><strong>Web:</strong><br><a href="https://${data.personalInfo.website}" target="_blank" style="color:white;text-decoration:none">${data.personalInfo.website}</a></p>`:''}</div>${data.skills.length>0?`<div><h3 style="font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:.5rem;margin-bottom:1rem">HABILIDADES</h3>${data.skills.map(s=>`<p style="font-size:.8rem;margin-bottom:.4rem">${s.name}<span style="font-size:.7rem;opacity:.8"> (${levelLabels[s.level]})</span></p>`).join('')}</div>`:''}</div><div style="width:65%; color:#333; display:flex; flex-direction:column;"><div style="padding:2.5rem; flex-grow:1;"><h1 style="font-family: var(--font-heading); font-size:2.0rem;font-weight:700;color:${data.themeColor};line-height:1.2;margin-bottom:.5rem">${getFullName(data.personalInfo)}</h1><h2 style="font-family: var(--font-heading); font-size:1.1rem;font-weight:500;margin-bottom:1.5rem;border-bottom:1px solid #eee;padding-bottom:.75rem">${data.personalInfo.title||''}</h2>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</div>${renderFooter(data)}</div></div>`;
+        templates.creative = (data) => `<div id="cv-template" style="height:100%; display:flex; position:relative;"><div style="position:absolute; top:0; left:0; right:0; height: 200px; background:${data.themeColor};"></div><div style="width:30%; padding:2rem; color:white; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom: 120px;"><h1 style="font-family:var(--font-heading); font-size:2.3rem; line-height:1.15; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">${data.personalInfo.firstName || ''}<br>${data.personalInfo.lastName || ''}</h1><h2 style="font-family:var(--font-heading); font-size:1rem; font-weight:500; margin-top:0.5rem;">${data.personalInfo.title||''}</h2></div><div style="width:70%; padding:2rem; background:white; z-index:1; margin-top: 100px;">${renderAvatarContainer(data, `<div style="width:180px; height:180px; border-radius:50%; overflow:hidden; border: 8px solid white; box-shadow: 0 0 20px rgba(0,0,0,0.2); margin-top: -110px; margin-left:-70px; background-color:${data.themeColor};">${renderAvatar(data)}</div>`)}<main style="margin-top:2rem;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<p>${s.name} - ${levelLabels[s.level]}</p>`, data.themeColor)}</main></div></div>`;
+        // --- FIN DE PLANTILLAS MODIFICADAS ---
+        
         templates.modern = (data) => `<div id="cv-template" style="display:flex;flex-direction:column;height:100%"><header style="padding:2.5rem;display:flex;align-items:center;gap:2rem;border-bottom:2px solid ${data.themeColor}">${renderAvatarContainer(data, `<div style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;background-color:${data.themeColor}">${renderAvatar(data)}</div>`)}<div><h1 style="font-family: var(--font-heading); font-size:2.3rem;font-weight:700;color:#333;line-height:1.1">${getFullName(data.personalInfo)}</h1><h2 style="font-family: var(--font-heading); font-size:1.1rem;font-weight:500;color:${data.themeColor}">${data.personalInfo.title||''}</h2></div></header><main style="padding:2.5rem;flex-grow:1;display:grid;grid-template-columns:2.5fr 1fr;gap:2.5rem"><div>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</div><div>${renderGenericSection('Habilidades', data.skills, s => `<p style="font-size:0.8rem;margin-bottom:.4rem">${s.name}<span style="font-size:.7rem;opacity:.8"> (${levelLabels[s.level]})</span></p>`, data.themeColor)}</div></main>${renderFooter(data, {color: 'white', bgColor: data.themeColor, borderColor: data.themeColor})}</div>`;
         templates.compact = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 2rem; font-size: 0.9rem;"><header style="display:flex; gap: 1.5rem; border-bottom: 2px solid ${data.themeColor}; padding-bottom: 1.5rem;">${renderAvatarContainer(data, `<div style="width:90px; height:90px; border-radius:50%; overflow:hidden; flex-shrink:0; background-color:${data.themeColor}">${renderAvatar(data)}</div>`)}<div style="width:100%;"><h1 style="font-family:var(--font-heading); font-size:2rem; font-weight:700; color:${data.themeColor}">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:1rem; font-weight:500; margin-bottom:0.5rem;">${data.personalInfo.title||''}</h2><div style="display:flex; flex-wrap:wrap; gap: 0.5rem 1.5rem; font-size:0.75rem; color:#555;">${data.personalInfo.email?`<span>${footerIcons.email} ${data.personalInfo.email}</span>`:''}${data.personalInfo.phone?`<span>${footerIcons.phone} ${data.personalInfo.phone}</span>`:''}${data.personalInfo.website?`<span>${footerIcons.web} ${data.personalInfo.website}</span>`:''}</div></div></header><main style="flex-grow:1; margin-top:1.5rem; display:grid; grid-template-columns:2fr 1fr; gap:2rem;"><div>${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</div><div>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.5;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<p style="font-size:.8rem;margin-bottom:.3rem">${s.name}</p>`, data.themeColor)}</div></main>${renderFooter(data, {padding: '1rem'})}</div>`;
-        templates.executive = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 3rem; text-align:center;"><header style="padding-bottom: 1.5rem; margin-bottom:1.5rem; border-bottom: 2px solid ${data.themeColor};"><h1 style="font-family:var(--font-serif); font-size:2.8rem; font-weight:600;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-serif); font-size:1.2rem; font-weight:400; color:#444;">${data.personalInfo.title||''}</h2></header><main style="flex-grow:1; text-align:left;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem; text-align:center; line-height:1.7;white-space:pre-wrap; max-width: 80ch; margin: 0 auto;">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<span style="display:inline-block; background-color:#f1f1f1; color:#333; padding: 0.3rem 0.8rem; border-radius: 4px; margin: 0.2rem; font-size:0.85rem;">${s.name}</span>`, data.themeColor)}</main>${renderFooter(data)}</div>`;
-        templates.creative = (data) => `<div id="cv-template" style="height:100%; display:flex; position:relative;"><div style="position:absolute; top:0; left:0; right:0; height: 200px; background:${data.themeColor};"></div><div style="width:30%; padding:2rem; color:white; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom: 120px;"><h1 style="font-family:var(--font-heading); font-size:2.5rem; line-height:1.1; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">${data.personalInfo.firstName || ''}<br>${data.personalInfo.lastName || ''}</h1><h2 style="font-family:var(--font-heading); font-size:1rem; font-weight:500; margin-top:0.5rem;">${data.personalInfo.title||''}</h2></div><div style="width:70%; padding:2rem; background:white; z-index:1; margin-top: 100px;">${renderAvatarContainer(data, `<div style="width:180px; height:180px; border-radius:50%; overflow:hidden; border: 8px solid white; box-shadow: 0 0 20px rgba(0,0,0,0.2); margin-top: -110px; margin-left:-70px; background-color:${data.themeColor};">${renderAvatar(data)}</div>`)}<main style="margin-top:2rem;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<p>${s.name} - ${levelLabels[s.level]}</p>`, data.themeColor)}</main></div></div>`;
-        templates.minimalist = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 4rem; background:white;"><header style="margin-bottom: 3rem;"><h1 style="font-family:var(--font-heading); font-size:3rem; font-weight:400;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:400; color:${data.themeColor}; margin-top:0.25rem;">${data.personalInfo.title||''}</h2></header><main style="flex-grow:1; font-size:0.9rem; line-height:1.8;">${data.personalInfo.summary ? `<p style="margin-bottom:2rem; white-space:pre-wrap;">${data.personalInfo.summary}</p>`:''}${renderGenericSection('Experiencia', data.experience, e => `<div style="margin-bottom:1.5rem; display:grid; grid-template-columns: 150px 1fr; gap:1rem;"><p style="font-size:.75rem; color:#666;">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p><div><h4 style="font-weight:600;">${e.position||''}</h4><p style="font-style:italic;">${e.company||''}</p></div></div>`, data.themeColor)}${renderGenericSection('Educación', data.education, e => `<div style="margin-bottom:1.5rem; display:grid; grid-template-columns: 150px 1fr; gap:1rem;"><p style="font-size:.75rem; color:#666;">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p><div><h4 style="font-weight:600;">${e.degree||''}</h4><p style="font-style:italic;">${e.institution||''}</p></div></div>`, data.themeColor)}</main>${renderFooter(data)}</div>`;
+        templates.executive = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 3rem; text-align:center;"><header style="padding-bottom: 1.5rem; margin-bottom:1.5rem; border-bottom: 2px solid ${data.themeColor};"><h1 style="font-family:var(--font-serif); font-size:2.4rem; font-weight:600;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-serif); font-size:1.2rem; font-weight:400; color:#444;">${data.personalInfo.title||''}</h2></header><main style="flex-grow:1; text-align:left;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem; text-align:center; line-height:1.7;white-space:pre-wrap; max-width: 80ch; margin: 0 auto;">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<span style="display:inline-block; background-color:#f1f1f1; color:#333; padding: 0.3rem 0.8rem; border-radius: 4px; margin: 0.2rem; font-size:0.85rem;">${s.name}</span>`, data.themeColor)}</main>${renderFooter(data)}</div>`;
+        templates.minimalist = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 4rem; background:white;"><header style="margin-bottom: 3rem;"><h1 style="font-family:var(--font-heading); font-size:2.5rem; font-weight:400;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:400; color:${data.themeColor}; margin-top:0.25rem;">${data.personalInfo.title||''}</h2></header><main style="flex-grow:1; font-size:0.9rem; line-height:1.8;">${data.personalInfo.summary ? `<p style="margin-bottom:2rem; white-space:pre-wrap;">${data.personalInfo.summary}</p>`:''}${renderGenericSection('Experiencia', data.experience, e => `<div style="margin-bottom:1.5rem; display:grid; grid-template-columns: 150px 1fr; gap:1rem;"><p style="font-size:.75rem; color:#666;">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p><div><h4 style="font-weight:600;">${e.position||''}</h4><p style="font-style:italic;">${e.company||''}</p></div></div>`, data.themeColor)}${renderGenericSection('Educación', data.education, e => `<div style="margin-bottom:1.5rem; display:grid; grid-template-columns: 150px 1fr; gap:1rem;"><p style="font-size:.75rem; color:#666;">${formatExperienceDate(e.startDate,e.endDate,e.current)}</p><div><h4 style="font-weight:600;">${e.degree||''}</h4><p style="font-style:italic;">${e.institution||''}</p></div></div>`, data.themeColor)}</main>${renderFooter(data)}</div>`;
         templates.corporate = (data) => `<div id="cv-template" style="display:flex; height:100%;"><div style="width:30%; background-color:#f8f9fa; padding:2rem; border-right:1px solid #eee;"><div style="text-align:center; margin-bottom:2rem;">${renderAvatarContainer(data, `<div style="width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto 1rem; background-color:#ddd;">${renderAvatar(data)}</div>`)}<h1 style="font-family:var(--font-heading); font-size:1.6rem; color:${data.themeColor}; line-height:1.2;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:0.9rem; font-weight:500; color:#555;">${data.personalInfo.title||''}</h2></div><div><h3 style="font-size:0.9rem; color:${data.themeColor}; border-bottom:1px solid #ddd; padding-bottom:0.4rem; margin-bottom:0.8rem;">CONTACTO</h3><p style="font-size:.75rem; margin-bottom:0.5rem; word-break:break-all;">${data.personalInfo.email||''}</p><p style="font-size:.75rem; margin-bottom:0.5rem;">${data.personalInfo.phone||''}</p><p style="font-size:.75rem; margin-bottom:0.5rem; word-break:break-all;">${data.personalInfo.website||''}</p></div>${renderGenericSection('Habilidades', data.skills, s => `<p style="font-size:.8rem;margin-bottom:.4rem">${s.name}</p>`, data.themeColor)}</div><div style="width:70%; padding:2.5rem; display:flex;flex-direction:column;"><main style="flex-grow:1">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.8rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</main>${renderFooter(data)}</div></div>`;
         templates.technical = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 2.5rem; font-family: var(--font-mono); background:#fdfdfd;"><header style="padding-bottom:1rem; margin-bottom:1rem; border-bottom:1px solid #ccc;"><h1 style="font-family: var(--font-heading); font-size:2.2rem; font-weight:600;">${getFullName(data.personalInfo)} &gt; <span style="color:${data.themeColor};">${data.personalInfo.title||'Professional'}</span></h1><div style="font-size:0.8rem; color:#555;">// ${data.personalInfo.email} | ${data.personalInfo.phone} | ${data.personalInfo.website}</div></header><main style="flex-grow:1;">${renderGenericSection('// SUMMARY', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.85rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('// EXPERIENCE', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('// EDUCATION', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('// SKILLS', data.skills, s => `<span style="display:inline-block; border:1px solid ${data.themeColor}; color:${data.themeColor}; padding: 0.2rem 0.6rem; border-radius: 4px; margin: 0.2rem; font-size:0.8rem;">${s.name}</span>`, data.themeColor)}</main>${renderFooter(data)}</div>`;
+        templates.impact = (data) => `<div id="cv-template" style="height:100%; padding:2.5rem; display:flex; flex-direction:column;"><header style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:4px solid ${data.themeColor}; padding-bottom:1rem; flex-wrap: wrap; gap: 0.5rem;"><h1 style="font-size:2.2rem; font-weight:700; line-height:1; flex-grow:1;">${getFullName(data.personalInfo)}</h1><div style="text-align:right; flex-shrink: 0;"><h2 style="font-size:1.1rem; color:${data.themeColor}; font-weight: 600;">${data.personalInfo.title}</h2><p style="font-size: 0.85rem;">${data.personalInfo.email} | ${data.personalInfo.phone}</p></div></header><div style="display:grid; grid-template-columns: 3fr 1fr; gap:2rem; flex-grow:1; margin-top:2rem;"><div>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}</div><div>${renderGenericSection('Impacto Clave', data.impacts, item => `<div style="background:#f4f4f4; padding:0.8rem; border-left:4px solid ${data.themeColor}; margin-bottom:0.8rem; font-size:0.85rem;">${item.description}</div>`, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<p>${s.name}</p>`, data.themeColor)}</div></div></div>`;
+        templates.monochrome = (data) => `<div id="cv-template" style="height:100%; padding:3rem; background:white; color:#111;"><header style="text-align:center; padding-bottom:1.5rem; border-bottom:2px solid #111; margin-bottom:1.5rem;"><h1 style="font-size:2.4rem; font-weight:300; letter-spacing:1px;">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1.1rem; font-weight:500; letter-spacing:2px; color:#555;">${data.personalInfo.title}</h2></header><main style="font-size:0.9rem; line-height:1.8;">${renderGenericSection('PERFIL', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="white-space:pre-wrap">${item.text}</p>`, '#111')}${renderGenericSection('EXPERIENCIA', data.experience, renderExperienceItem, '#111')}${renderGenericSection('EDUCACIÓN', data.education, renderEducationItem, '#111')}</main>${renderFooter(data, {color:'#555', bgColor:'transparent', borderColor:'#eee'})}</div>`;
+        templates.swiss = (data) => `<div id="cv-template" style="height:100%; display:grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; padding:3rem; background:#fff;"><header style="grid-column: 1 / -1; padding-bottom:1.5rem; margin-bottom:1.5rem; border-bottom:3px solid #111;"><h1 style="font-size:2.8rem; font-weight:700; letter-spacing:-1.5px; line-height:1;">${getFullName(data.personalInfo)}</h1></header><aside style="font-size:0.8rem; padding-right:2rem;"><h3 style="font-size:0.9rem; font-weight:700; letter-spacing:1px; margin-bottom:1rem; color:${data.themeColor};">CONTACTO</h3><p>${data.personalInfo.email}</p><p>${data.personalInfo.phone}</p><p>${data.personalInfo.website}</p>${renderGenericSection('HABILIDADES', data.skills, s => `<p>${s.name}</p>`, data.themeColor)}</aside><main style="padding-left:2rem; border-left:1px solid #eee;">${renderGenericSection('PERFIL', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem; line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('EXPERIENCIA', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('EDUCACIÓN', data.education, renderEducationItem, data.themeColor)}</main></div>`;
         templates.infographic = (data) => { const skillLevelMap = { beginner: 25, intermediate: 50, advanced: 75, expert: 95 }; const timelineItem = (item, color) => `<div style="display:flex; gap:1rem; margin-bottom:1.5rem;"><div style="flex-shrink:0; display:flex; flex-direction:column; align-items:center;"><div style="width:20px; height:20px; border-radius:50%; background:${color}; border:3px solid white; box-shadow:0 0 5px rgba(0,0,0,0.2);"></div><div style="width:2px; background:#ccc; flex-grow:1;"></div></div><div><p style="font-size:.75rem; font-weight:500; color:#555;">${formatExperienceDate(item.startDate, item.endDate, item.current)}</p><h4 style="font-weight:600;">${item.position || item.degree}</h4><p style="font-size:.85rem;font-style:italic;margin-bottom:.3rem">${item.company || item.institution}</p></div></div>`; return `<div id="cv-template" style="display:grid; grid-template-columns: 1fr 1fr; height:100%;"><div style="background-color:${data.themeColor}; color:white; padding:2.5rem; display:flex; flex-direction:column; justify-content:center; text-align:center;">${renderAvatarContainer(data, `<div style="width:160px; height:160px; border-radius:50%; overflow:hidden; margin:0 auto 1.5rem; border:6px solid white;">${renderAvatar(data)}</div>`)}<h1 style="font-family:var(--font-heading); font-size:2.5rem; line-height:1.1;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:400; opacity:0.9;">${data.personalInfo.title}</h2><p style="font-size:0.85rem; line-height:1.6; margin-top:1.5rem; white-space:pre-wrap;">${data.personalInfo.summary}</p></div><div style="padding:2.5rem; overflow-y:auto;"><div style="max-height:100%;">${renderGenericSection('Experiencia', data.experience, e => timelineItem(e, data.themeColor), data.themeColor)}${renderGenericSection('Educación', data.education, e => timelineItem(e, data.themeColor), data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<div style="margin-bottom:0.8rem;"><p style="font-weight:500; font-size:0.85rem;">${s.name}</p><div style="height:8px; background:#eee; border-radius:4px; overflow:hidden;"><div style="width:${skillLevelMap[s.level]}%; height:100%; background:${data.themeColor};"></div></div></div>`, data.themeColor)}</div></div></div>`; };
         templates.academic = (data) => `<div id="cv-template" style="display:flex; flex-direction:column; height:100%; padding: 3rem; font-family:var(--font-serif);"><header style="text-align:center; margin-bottom:2rem;"><h1 style="font-family:var(--font-heading); font-size:2.5rem; font-weight:600;">${getFullName(data.personalInfo)}</h1><p style="margin-top:0.5rem; font-size:0.9rem;">${data.personalInfo.address} | <a href="mailto:${data.personalInfo.email}" style="color:inherit;">${data.personalInfo.email}</a> | ${data.personalInfo.phone}</p></header><main style="flex-grow:1; font-size:0.95rem; line-height:1.7;">${renderGenericSection('Resumen Profesional', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="white-space:pre-wrap;">${item.text}</p>`, '#333')}${renderGenericSection('Educación', data.education, renderEducationItem, '#333')}${renderGenericSection('Experiencia Profesional', data.experience, renderExperienceItem, '#333')}${renderGenericSection('Habilidades Clave', data.skills, s => `<li>${s.name} (${levelLabels[s.level]})</li>`, '#333').replace('<div','<ul').replace('</div>','</ul>')} </main>${renderFooter(data)}</div>`;
         templates.visionary = (data) => `<div id="cv-template" style="height:100%; color:white; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/6d7t3V9.jpeg'); background-size:cover; background-position:center; display:flex; flex-direction:column; padding:3rem;"><header style="text-align:center; border-bottom: 2px solid ${data.themeColor}; padding-bottom:1.5rem;"><h1 style="font-family:var(--font-heading); font-size:3rem; font-weight:700; text-shadow:2px 2px 4px #000;">${getFullName(data.personalInfo)}</h1><h2 style="font-family:var(--font-heading); font-size:1.2rem; font-weight:400; color:${data.themeColor};">${data.personalInfo.title}</h2></header><main style="flex-grow:1; margin-top:2rem; text-shadow:1px 1px 3px #000;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="text-align:center;font-size:.9rem;line-height:1.7;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</main>${renderFooter(data, {color:'white', bgColor:'transparent', borderColor:data.themeColor})}</div>`;
-        templates.swiss = (data) => `<div id="cv-template" style="height:100%; display:grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; padding:3rem; background:#fff;"><header style="grid-column: 1 / -1; padding-bottom:1.5rem; margin-bottom:1.5rem; border-bottom:3px solid #111;"><h1 style="font-size:3.5rem; font-weight:700; letter-spacing:-2px; line-height:1;">${getFullName(data.personalInfo)}</h1></header><aside style="font-size:0.8rem; padding-right:2rem;"><h3 style="font-size:0.9rem; font-weight:700; letter-spacing:1px; margin-bottom:1rem; color:${data.themeColor};">CONTACTO</h3><p>${data.personalInfo.email}</p><p>${data.personalInfo.phone}</p><p>${data.personalInfo.website}</p>${renderGenericSection('HABILIDADES', data.skills, s => `<p>${s.name}</p>`, data.themeColor)}</aside><main style="padding-left:2rem; border-left:1px solid #eee;">${renderGenericSection('PERFIL', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem; line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('EXPERIENCIA', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('EDUCACIÓN', data.education, renderEducationItem, data.themeColor)}</main></div>`;
         templates.midnight = (data) => `<div id="cv-template" style="height:100%; background:#1a1a1a; color:#e0e0e0; padding:2.5rem; display:flex; flex-direction:column;"><header style="display:flex; align-items:center; gap:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid #444;">${renderAvatarContainer(data, `<div style="width:100px; height:100px; border-radius:50%; overflow:hidden; border:3px solid ${data.themeColor};">${renderAvatar(data)}</div>`)}<div><h1 style="font-family:var(--font-heading); font-size:2.5rem; color:white;">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1.1rem; color:${data.themeColor};">${data.personalInfo.title}</h2></div></header><main style="flex-grow:1; margin-top:1.5rem;">${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</main>${renderFooter(data, {color: '#ccc', bgColor: '#222', borderColor:'#444'})}</div>`;
         templates.artisan = (data) => `<div id="cv-template" style="height:100%; background:#fdfaf6; padding:3rem; font-family:var(--font-serif);"><header style="text-align:center; margin-bottom:2rem;"><h1 style="font-size:2.8rem; font-weight:600; color:${data.themeColor};">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1.1rem; margin-top:0.2rem;">${data.personalInfo.title}</h2></header><main style="line-height:1.7;">${renderGenericSection('Perfil', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-style:italic;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}<div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</div>${renderGenericSection('Habilidades', data.skills, s => `<span style="display:inline-block; border-bottom:1px dotted ${data.themeColor}; margin: 0.3rem;">${s.name}</span>`, data.themeColor)}</main></div>`;
         templates.chronological = (data) => `<div id="cv-template" style="height:100%; padding:2.5rem; display:flex; flex-direction:column;"><header style="text-align:center; margin-bottom:2rem;"><h1 style="font-family:var(--font-heading); font-size:2.5rem; color:${data.themeColor};">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1.1rem;">${data.personalInfo.title}</h2></header><main style="flex-grow:1; position:relative;"><div style="position:absolute; left:50%; top:0; bottom:0; width:3px; background-color:${data.themeColor}; transform:translateX(-50%);"></div><div style="display:flex; flex-direction:column; gap:1.5rem;">${[...data.experience, ...data.education].sort((a,b) => new Date(b.startDate) - new Date(a.startDate)).map((item, i) => `<div style="display:flex; justify-content:${i%2===0?'flex-start':'flex-end'};"><div style="width:calc(50% - 2rem); padding:${i%2===0?'0 2rem 0 0':'0 0 0 2rem'}; text-align:${i%2===0?'right':'left'}; border-${i%2===0?'right':'left'}:3px solid ${data.themeColor}; position:relative;"><div style="position:absolute; top:0; ${i%2===0?'right':'left'}:-11px; width:20px; height:20px; border-radius:50%; background:white; border:3px solid ${data.themeColor};"></div><h4 style="font-weight:600;">${item.position || item.degree}</h4><p style="font-style:italic;">${item.company || item.institution}</p><p style="font-size:0.8rem; color:#666;">${formatExperienceDate(item.startDate, item.endDate, item.current)}</p></div></div>`).join('')}</div></main></div>`;
-        templates.impact = (data) => `<div id="cv-template" style="height:100%; padding:2.5rem; display:flex; flex-direction:column;"><header style="display:flex; justify-content:space-between; align-items:center; border-bottom:4px solid ${data.themeColor}; padding-bottom:1rem;"><h1 style="font-size:2.8rem; font-weight:700; line-height:1;">${getFullName(data.personalInfo)}</h1><div style="text-align:right;"><h2 style="font-size:1.2rem; color:${data.themeColor};">${data.personalInfo.title}</h2><p>${data.personalInfo.email} | ${data.personalInfo.phone}</p></div></header><div style="display:grid; grid-template-columns: 3fr 1fr; gap:2rem; flex-grow:1; margin-top:2rem;"><div>${renderGenericSection('Resumen', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem;line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}</div><div>${renderGenericSection('Impacto Clave', data.impacts, item => `<div style="background:#f4f4f4; padding:0.8rem; border-left:4px solid ${data.themeColor}; margin-bottom:0.8rem; font-size:0.85rem;">${item.description}</div>`, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<p>${s.name}</p>`, data.themeColor)}</div></div></div>`;
         templates.portfolio = (data) => `<div id="cv-template" style="height:100%; display:flex; flex-direction:column;"><header style="background:${data.themeColor}; color:white; padding:2rem; text-align:center;">${renderAvatarContainer(data, `<div style="width:120px; height:120px; border-radius:50%; overflow:hidden; margin:0 auto 1rem; border:4px solid white;">${renderAvatar(data)}</div>`)}<h1 style="font-size:2.5rem;">${getFullName(data.personalInfo)}</h1><h2>${data.personalInfo.title}</h2></header><main style="flex-grow:1; padding:2rem;">${renderGenericSection('Portafolio', data.portfolio, item => `<div style="break-inside: avoid; margin-bottom: 1rem;"><img src="${item.img || 'https://via.placeholder.com/300x200/e9ecef/6c757d?text=Imagen'}" style="width:100%; height:auto; display:block; border-radius:4px; border: 1px solid #eee;"/><p style="font-size:0.8rem; text-align:center; margin-top:0.5rem; font-weight:500;">${item.title}</p></div>`, data.themeColor, 'column-count:3; column-gap:1rem;')}</main>${renderFooter(data)}</div>`;
         templates.columnist = (data) => `<div id="cv-template" style="height:100%; padding:3rem; font-family:var(--font-serif);"><header style="text-align:center; margin-bottom:2rem;"><h1 style="font-size:3rem; font-weight:400; letter-spacing:2px; text-transform:uppercase;">${getFullName(data.personalInfo)}</h1><p style="border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding:0.5rem 0; margin-top:0.5rem;">${data.personalInfo.title}</p></header><main style="column-count:2; column-gap:2rem; line-height:1.7;">${renderGenericSection('Perfil', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}${renderGenericSection('Habilidades', data.skills, s => `<li>${s.name}</li>`, data.themeColor).replace('<div','<ul').replace('</div>','</ul>')}</main></div>`;
         templates.prestige = (data) => `<div id="cv-template" style="height:100%; padding:3rem; display:flex; background:#f9f9f9;"><aside style="width:35%; padding-right:2rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">${renderAvatarContainer(data, `<div style="width:120px; height:120px; border:2px solid ${data.themeColor}; color:${data.themeColor}; font-size:4rem; font-weight:600; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">${getInitials(data.personalInfo)}</div>`)}<h1 style="font-family:var(--font-serif); font-size:2rem; line-height:1.2;">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1rem; font-weight:400;">${data.personalInfo.title}</h2></aside><main style="width:65%; padding-left:2rem; border-left:1px solid #ddd;">${renderGenericSection('Perfil', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="font-size:.9rem; line-height:1.6;white-space:pre-wrap">${item.text}</p>`, data.themeColor)}${renderGenericSection('Experiencia', data.experience, renderExperienceItem, data.themeColor)}${renderGenericSection('Educación', data.education, renderEducationItem, data.themeColor)}</main></div>`;
-        templates.monochrome = (data) => `<div id="cv-template" style="height:100%; padding:3rem; background:white; color:#111;"><header style="text-align:center; padding-bottom:1.5rem; border-bottom:2px solid #111; margin-bottom:1.5rem;"><h1 style="font-size:3rem; font-weight:300; letter-spacing:4px;">${getFullName(data.personalInfo)}</h1><h2 style="font-size:1.1rem; font-weight:500; letter-spacing:2px; color:#555;">${data.personalInfo.title}</h2></header><main style="font-size:0.9rem; line-height:1.8;">${renderGenericSection('PERFIL', data.personalInfo.summary ? [{text: data.personalInfo.summary}] : [], item => `<p style="white-space:pre-wrap">${item.text}</p>`, '#111')}${renderGenericSection('EXPERIENCIA', data.experience, renderExperienceItem, '#111')}${renderGenericSection('EDUCACIÓN', data.education, renderEducationItem, '#111')}</main>${renderFooter(data, {color:'#555', bgColor:'transparent', borderColor:'#eee'})}</div>`;
 
         formRenderers.welcome = () => renderForm(`<div class="form-section" data-section="welcome"><h2 class="section-title">¡Bienvenido al Generador de CV Pro!</h2><p class="section-subtitle">Sigue estos sencillos pasos para crear tu currículum profesional.</p><div style="margin-top:2rem; display:flex; flex-direction:column; gap:1.5rem;"><div style="display:flex; gap:1rem;"><div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--primary-accent); color:white; display:grid; place-items:center; font-weight:bold;">1</div><div><h3 style="margin:0 0 0.2rem 0;">Personaliza el Diseño</h3><p style="color:var(--color-muted-text);">Ve a la sección "Diseño" para elegir una plantilla y tu color favorito.</p></div></div><div style="display:flex; gap:1rem;"><div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--primary-accent); color:white; display:grid; place-items:center; font-weight:bold;">2</div><div><h3 style="margin:0 0 0.2rem 0;">Completa las Secciones</h3><p style="color:var(--color-muted-text);">Usa la navegación para rellenar tu avatar, experiencia, educación y habilidades.</p></div></div><div style="display:flex; gap:1rem;"><div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--primary-accent); color:white; display:grid; place-items:center; font-weight:bold;">3</div><div><h3 style="margin:0 0 0.2rem 0;">Descarga y Triunfa</h3><p style="color:var(--color-muted-text);">Cuando estés listo, presiona "Descargar PDF" para obtener tu CV profesional.</p></div></div></div></div>`);
         
-        // --- INICIO DE LA MODIFICACIÓN #1: formRenderers.design ---
-        // Se reemplaza la generación de tarjetas con <img> por <div> para las vistas previas dinámicas.
         formRenderers.design = () => { 
             const hexColor = cvData.themeColor.startsWith('#') ? cvData.themeColor : '#dc3545';
             renderForm(`<div class="form-section" data-section="design"><h2 class="section-title">Diseño y Apariencia</h2><p class="section-subtitle">Personaliza cómo se ve tu currículum.</p><div class="subsection-title">Color de Acento</div><div class="theme-selector"><div class="colors"><div class="color-dot ${cvData.themeColor==='#0d6efd'?'active':''}" data-color-value="#0d6efd" style="background:#0d6efd"></div><div class="color-dot ${cvData.themeColor==='#198754'?'active':''}" data-color-value="#198754" style="background:#198754"></div><div class="color-dot ${cvData.themeColor==='#6f42c1'?'active':''}" data-color-value="#6f42c1" style="background:#6f42c1"></div><div class="color-dot ${cvData.themeColor==='#dc3545'?'active':''}" data-color-value="#dc3545" style="background:#dc3545"></div><div class="color-dot ${cvData.themeColor==='#525f7f'?'active':''}" data-color-value="#525f7f" style="background:#525f7f"></div><div class="color-dot ${cvData.themeColor==='#e83e8c'?'active':''}" data-color-value="#e83e8c" style="background:#e83e8c"></div><input type="color" id="custom-color-picker" value="${hexColor}"></div></div><div class="subsection-title">Plantilla del CV</div>
@@ -151,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `).join('')}
             </div></div>`);
         };
-        // --- FIN DE LA MODIFICACIÓN #1 ---
 
         formRenderers.avatar = () => {
             const { type, value } = cvData.avatar || {type:'initials', value:''};
@@ -167,191 +167,187 @@ document.addEventListener('DOMContentLoaded', () => {
         formRenderers.portfolio = () => {renderForm(`<div class="form-section" data-section="portfolio"><h2 class="section-title">Portafolio</h2><p class="section-subtitle">Muestra tus mejores trabajos visuales.</p><div class="add-item-container"><button class="btn btn-secondary" data-action="add" data-section="portfolio">+ Añadir Proyecto</button></div><div class="dynamic-list">${cvData.portfolio.map(item => `<div class="item" data-id="${item.id}"><div class="item-header"><h4>${item.title || 'Nuevo Proyecto'}</h4><button class="btn-delete" data-action="delete" data-section="portfolio" data-id="${item.id}"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div><div style="display: flex; gap: 1rem; align-items: flex-start;"><img src="${item.img || 'https://via.placeholder.com/100x75/e9ecef/6c757d?text=Vista'}" style="width: 100px; height: 75px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--color-border);" class="portfolio-preview"><div style="flex-grow: 1;"><div class="form-group"><label>Título del Proyecto</label><input type="text" name="title" value="${item.title || ''}"></div><div class="form-group" style="margin-bottom:0;"><label>URL de la Imagen</label><input type="text" name="img" value="${item.img || ''}" placeholder="https://ejemplo.com/imagen.png"></div></div></div></div>`).join('')}</div></div>`);};
     };
 
-    // --- 4. CORE FUNCTIONS ---
-    const renderForm = (html) => {
-        formWrapper.innerHTML = html;
-        requestAnimationFrame(() => formWrapper.querySelector('.form-section')?.classList.add('active'));
-    };
-    const renderCVPreview = () => {
-        const themeColor = cvData.themeColor || '#525f7f';
-        document.documentElement.style.setProperty('--primary-accent', themeColor);
-        const layout = cvData.layout || 'classic';
-        cvPreviewWrapper.dataset.layout = layout;
-        const templateFn = templates[layout];
-        if(typeof templateFn !== 'function') {
-            console.error(`La plantilla "${layout}" no existe o no es una función.`);
-            cvPreviewWrapper.innerHTML = `<div style="padding:2rem; text-align:center; color:red;">Error: La plantilla seleccionada no se pudo cargar.</div>`;
-            return;
-        }
-        cvPreviewWrapper.innerHTML = templateFn(cvData);
-    };
-    
-    // --- INICIO DE LA MODIFICACIÓN #2: setActiveSection ---
-    // Se añade la lógica para renderizar las vistas previas dinámicas al cargar la sección "Diseño".
-    const setActiveSection = (sectionName) => {
-        if (!sectionName) return;
-        document.querySelectorAll('.editor-nav .nav-item').forEach(item => item.classList.toggle('active', item.getAttribute('href') === `#${sectionName}`));
-        
-        const renderer = formRenderers[sectionName];
-        if (typeof renderer === 'function') {
-            renderer(); // Llama al renderer para crear el HTML del formulario
+            // --- 4. CORE FUNCTIONS ---
+            const renderForm = (html) => {
+                formWrapper.innerHTML = html;
+                requestAnimationFrame(() => formWrapper.querySelector('.form-section')?.classList.add('active'));
+            };
+            const renderCVPreview = () => {
+                const themeColor = cvData.themeColor || '#525f7f';
+                document.documentElement.style.setProperty('--primary-accent', themeColor);
+                const layout = cvData.layout || 'classic';
+                cvPreviewWrapper.dataset.layout = layout;
+                const templateFn = templates[layout];
+                if(typeof templateFn !== 'function') {
+                    console.error(`La plantilla "${layout}" no existe o no es una función.`);
+                    cvPreviewWrapper.innerHTML = `<div style="padding:2rem; text-align:center; color:red;">Error: La plantilla seleccionada no se pudo cargar.</div>`;
+                    return;
+                }
+                cvPreviewWrapper.innerHTML = templateFn(cvData);
+            };
+            
+            const setActiveSection = (sectionName) => {
+                if (!sectionName) return;
+                document.querySelectorAll('.editor-nav .nav-item').forEach(item => item.classList.toggle('active', item.getAttribute('href') === `#${sectionName}`));
+                
+                const renderer = formRenderers[sectionName];
+                if (typeof renderer === 'function') {
+                    renderer(); 
 
-            // Si la sección es 'design', renderizamos las vistas previas en miniatura
-            if (sectionName === 'design') {
-                document.querySelectorAll('.layout-selector .mini-preview-container').forEach(container => {
-                    const layoutCard = container.closest('.layout-card');
-                    if (layoutCard) {
-                        const layoutName = layoutCard.dataset.layout;
-                        const templateFn = templates[layoutName];
-                        if (templateFn) {
-                            // Renderiza la plantilla con los datos actuales y la inserta en el contenedor
-                            container.innerHTML = templateFn(cvData);
+                    if (sectionName === 'design') {
+                        document.querySelectorAll('.layout-selector .mini-preview-container').forEach(container => {
+                            const layoutCard = container.closest('.layout-card');
+                            if (layoutCard) {
+                                const layoutName = layoutCard.dataset.layout;
+                                const templateFn = templates[layoutName];
+                                if (templateFn) {
+                                    container.innerHTML = templateFn(cvData);
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    console.error(`No se encontró un renderer para la sección: "${sectionName}"`);
+                    formWrapper.innerHTML = `<div class="form-section active"><h2 class="section-title">Error</h2><p>No se pudo cargar esta sección.</p></div>`;
+                }
+            };
+
+            // --- 5. INITIALIZATION & EVENT LISTENERS ---
+            function init() {
+                buildTemplateAndFormFunctions();
+
+                downloadPdfBtn.addEventListener('click', () => window.print());
+                document.querySelectorAll('.editor-nav .nav-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setActiveSection(item.getAttribute('href').substring(1));
+                    });
+                });
+
+                formWrapper.addEventListener('input', (e) => {
+                    const { target } = e; 
+                    const section = target.closest('.form-section')?.dataset.section; 
+                    if (!section) return;
+
+                    if (section === 'personal') {
+                        cvData.personalInfo[target.name] = target.value;
+                    } else if (['experience', 'education', 'impacts', 'portfolio'].includes(section)) {
+                        const itemEl = target.closest('.item');
+                        if(!itemEl) return;
+                        const itemId = itemEl.dataset.id;
+                        const item = cvData[section].find(i => i.id == itemId);
+                        if (item) {
+                            item[target.name] = target.type === 'checkbox' ? target.checked : target.value;
+                            if (target.name === 'current') {
+                                const endDateInput = itemEl.querySelector('input[name="endDate"]');
+                                if (endDateInput) endDateInput.disabled = target.checked;
+                                if (target.checked) item.endDate = '';
+                            }
+                            if (section === 'portfolio') {
+                                if(target.name === 'img') {
+                                    const previewImg = itemEl.querySelector('.portfolio-preview');
+                                    previewImg.src = target.value || 'https://via.placeholder.com/100x75/e9ecef/6c757d?text=Vista';
+                                }
+                                if(target.name === 'title') {
+                                    itemEl.querySelector('.item-header h4').textContent = target.value || 'Nuevo Proyecto';
+                                }
+                            }
+                        }
+                    } else if (section === 'design' && target.id === 'custom-color-picker') {
+                        cvData.themeColor = target.value;
+                    } else if (section === 'avatar') {
+                        if (target.id === 'initials-input') cvData.avatar = { type: 'initials', value: target.value.toUpperCase() };
+                        if (target.id === 'image-url-input') cvData.avatar = { type: 'url', value: target.value };
+                        if (target.id === 'svg-code-input') cvData.avatar = { type: 'svg', value: target.value };
+                        if (target.id === 'quote-input') cvData.avatar = { type: 'quote', value: target.value };
+                        if (target.id === 'qr-url-input') cvData.avatar = { type: 'qr', value: target.value };
+                    }
+                    renderCVPreview();
+                });
+
+                formWrapper.addEventListener('click', (e) => {
+                    const button = e.target.closest('button, .avatar-tab, .icon-option, .layout-card, .color-dot');
+                    if (!button) return;
+
+                    const section = button.dataset.section || button.closest('.form-section')?.dataset.section;
+                    const action = button.dataset.action || 
+                                (button.classList.contains('avatar-tab') && 'switchTab') || 
+                                (button.classList.contains('icon-option') && 'selectIcon') || 
+                                (button.id === 'remove-photo-btn' && 'removePhoto') || 
+                                (button.classList.contains('layout-card') && 'selectLayout') || 
+                                (button.classList.contains('color-dot') && 'selectColor');
+                    
+                    if (action) {
+                        if (section === 'footer' && action === 'add') {
+                            const typeInput = document.getElementById('footer-item-type');
+                            const labelInput = document.getElementById('footer-item-label');
+                            const valueInput = document.getElementById('footer-item-value');
+                            if (valueInput.value.trim()) {
+                                cvData.footer.push({ id: Date.now(), type: typeInput.value, label: labelInput.value.trim(), value: valueInput.value.trim() });
+                                labelInput.value = ''; valueInput.value = '';
+                            }
+                        } else if (action === 'add') {
+                            let newItem;
+                            if (section === 'impacts') newItem = { id: Date.now(), description: '' };
+                            else if (section === 'portfolio') newItem = { id: Date.now(), title: 'Nuevo Proyecto', img: '' };
+                            else if (['experience', 'education'].includes(section)) newItem = { id: Date.now(), description: '' };
+                            else newItem = { id: Date.now() };
+                            
+                            if(cvData[section]) cvData[section].push(newItem);
+                        } else if (action === 'delete') {
+                            if(cvData[section]) cvData[section] = cvData[section].filter(i => i.id != button.dataset.id);
+                        } else if (action === 'switchTab') {
+                            const newType = button.dataset.type;
+                            if (cvData.avatar.type !== newType) { 
+                                cvData.avatar.type = newType;
+                                if (!['url', 'initials', 'svg', 'quote', 'qr'].includes(newType)) {
+                                cvData.avatar.value = cvData.avatar.value || '';
+                                }
+                            }
+                        } else if (action === 'selectIcon') {
+                            cvData.avatar = { type: 'icon', value: iconOptions[button.dataset.iconKey] };
+                        } else if (action === 'removePhoto') {
+                            cvData.avatar = { type: 'photo', value: '' };
+                        } else if (action === 'selectLayout') {
+                            cvData.layout = button.dataset.layout;
+                        } else if (action === 'selectColor') {
+                            cvData.themeColor = button.dataset.colorValue;
+                        }
+                        
+                        if(section) setActiveSection(section);
+                        renderCVPreview();
+                    }
+                });
+
+                formWrapper.addEventListener('submit', (e) => {
+                    if (e.target.id === 'skills-form') {
+                        e.preventDefault();
+                        const nameInput = e.target.querySelector('#skillName');
+                        const level = e.target.querySelector('#skillLevel').value;
+                        if (nameInput.value.trim()) {
+                            cvData.skills.push({ id: Date.now(), name: nameInput.value.trim(), level });
+                            setActiveSection('skills');
+                            renderCVPreview();
                         }
                     }
                 });
-            }
-        } else {
-            console.error(`No se encontró un renderer para la sección: "${sectionName}"`);
-            formWrapper.innerHTML = `<div class="form-section active"><h2 class="section-title">Error</h2><p>No se pudo cargar esta sección.</p></div>`;
-        }
-    };
-    // --- FIN DE LA MODIFICACIÓN #2 ---
 
-    // --- 5. INITIALIZATION & EVENT LISTENERS ---
-    function init() {
-        buildTemplateAndFormFunctions();
-
-        downloadPdfBtn.addEventListener('click', () => window.print());
-        document.querySelectorAll('.editor-nav .nav-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                setActiveSection(item.getAttribute('href').substring(1));
-            });
-        });
-
-        formWrapper.addEventListener('input', (e) => {
-            const { target } = e; 
-            const section = target.closest('.form-section')?.dataset.section; 
-            if (!section) return;
-
-            if (section === 'personal') {
-                cvData.personalInfo[target.name] = target.value;
-            } else if (['experience', 'education', 'impacts', 'portfolio'].includes(section)) {
-                const itemEl = target.closest('.item');
-                if(!itemEl) return;
-                const itemId = itemEl.dataset.id;
-                const item = cvData[section].find(i => i.id == itemId);
-                if (item) {
-                    item[target.name] = target.type === 'checkbox' ? target.checked : target.value;
-                    if (target.name === 'current') {
-                        const endDateInput = itemEl.querySelector('input[name="endDate"]');
-                        if (endDateInput) endDateInput.disabled = target.checked;
-                        if (target.checked) item.endDate = '';
+                formWrapper.addEventListener('change', (e) => {
+                    if (e.target.id === 'photo-input' && e.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            cvData.avatar = { type: 'photo', value: event.target.result };
+                            setActiveSection('avatar');
+                            renderCVPreview();
+                        };
+                        reader.readAsDataURL(e.target.files[0]);
                     }
-                    if (section === 'portfolio') {
-                         if(target.name === 'img') {
-                            const previewImg = itemEl.querySelector('.portfolio-preview');
-                            previewImg.src = target.value || 'https://via.placeholder.com/100x75/e9ecef/6c757d?text=Vista';
-                        }
-                         if(target.name === 'title') {
-                            itemEl.querySelector('.item-header h4').textContent = target.value || 'Nuevo Proyecto';
-                        }
-                    }
-                }
-            } else if (section === 'design' && target.id === 'custom-color-picker') {
-                cvData.themeColor = target.value;
-            } else if (section === 'avatar') {
-                if (target.id === 'initials-input') cvData.avatar = { type: 'initials', value: target.value.toUpperCase() };
-                if (target.id === 'image-url-input') cvData.avatar = { type: 'url', value: target.value };
-                if (target.id === 'svg-code-input') cvData.avatar = { type: 'svg', value: target.value };
-                if (target.id === 'quote-input') cvData.avatar = { type: 'quote', value: target.value };
-                if (target.id === 'qr-url-input') cvData.avatar = { type: 'qr', value: target.value };
-            }
-            renderCVPreview();
-        });
-
-        formWrapper.addEventListener('click', (e) => {
-            const button = e.target.closest('button, .avatar-tab, .icon-option, .layout-card, .color-dot');
-            if (!button) return;
-
-            const section = button.dataset.section || button.closest('.form-section')?.dataset.section;
-            const action = button.dataset.action || 
-                           (button.classList.contains('avatar-tab') && 'switchTab') || 
-                           (button.classList.contains('icon-option') && 'selectIcon') || 
-                           (button.id === 'remove-photo-btn' && 'removePhoto') || 
-                           (button.classList.contains('layout-card') && 'selectLayout') || 
-                           (button.classList.contains('color-dot') && 'selectColor');
-            
-            if (action) {
-                 if (section === 'footer' && action === 'add') {
-                    const typeInput = document.getElementById('footer-item-type');
-                    const labelInput = document.getElementById('footer-item-label');
-                    const valueInput = document.getElementById('footer-item-value');
-                    if (valueInput.value.trim()) {
-                        cvData.footer.push({ id: Date.now(), type: typeInput.value, label: labelInput.value.trim(), value: valueInput.value.trim() });
-                        labelInput.value = ''; valueInput.value = '';
-                    }
-                } else if (action === 'add') {
-                    let newItem;
-                    if (section === 'impacts') newItem = { id: Date.now(), description: '' };
-                    else if (section === 'portfolio') newItem = { id: Date.now(), title: 'Nuevo Proyecto', img: '' };
-                    else if (['experience', 'education'].includes(section)) newItem = { id: Date.now(), description: '' };
-                    else newItem = { id: Date.now() };
-                    
-                    if(cvData[section]) cvData[section].push(newItem);
-                } else if (action === 'delete') {
-                    if(cvData[section]) cvData[section] = cvData[section].filter(i => i.id != button.dataset.id);
-                } else if (action === 'switchTab') {
-                    const newType = button.dataset.type;
-                    if (cvData.avatar.type !== newType) { 
-                        cvData.avatar.type = newType;
-                        if (!['url', 'initials', 'svg', 'quote', 'qr'].includes(newType)) {
-                           cvData.avatar.value = cvData.avatar.value || '';
-                        }
-                    }
-                } else if (action === 'selectIcon') {
-                    cvData.avatar = { type: 'icon', value: iconOptions[button.dataset.iconKey] };
-                } else if (action === 'removePhoto') {
-                    cvData.avatar = { type: 'photo', value: '' };
-                } else if (action === 'selectLayout') {
-                    cvData.layout = button.dataset.layout;
-                } else if (action === 'selectColor') {
-                    cvData.themeColor = button.dataset.colorValue;
-                }
+                });
                 
-                if(section) setActiveSection(section);
+                setActiveSection('welcome');
                 renderCVPreview();
             }
-        });
 
-        formWrapper.addEventListener('submit', (e) => {
-            if (e.target.id === 'skills-form') {
-                e.preventDefault();
-                const nameInput = e.target.querySelector('#skillName');
-                const level = e.target.querySelector('#skillLevel').value;
-                if (nameInput.value.trim()) {
-                    cvData.skills.push({ id: Date.now(), name: nameInput.value.trim(), level });
-                    setActiveSection('skills');
-                    renderCVPreview();
-                }
-            }
+            init();
         });
-
-        formWrapper.addEventListener('change', (e) => {
-            if (e.target.id === 'photo-input' && e.target.files[0]) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    cvData.avatar = { type: 'photo', value: event.target.result };
-                    setActiveSection('avatar');
-                    renderCVPreview();
-                };
-                reader.readAsDataURL(e.target.files[0]);
-            }
-        });
-        
-        setActiveSection('welcome');
-        renderCVPreview();
-    }
-
-    init();
-});
+   
