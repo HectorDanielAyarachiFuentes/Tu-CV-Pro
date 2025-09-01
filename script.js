@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: Date.now() + 9, type: 'text', label: '', value: 'Referencias disponibles a petición.'}
         ],
         portfolio: [
-            { id: Date.now() + 10, img: 'https://i.imgur.com/sC0zt8I.png', title: 'Diseño de App Móvil' },
+            { id: Date.now() + 10, img: 'https://github.com/HectorDanielAyarachiFuentes/Tu-CV-Pro/blob/main/img/portafolio-img.jpeg?raw=true', title: 'Diseño de App Móvil' },
             { id: Date.now() + 11, img: 'https://i.imgur.com/h564P2c.png', title: 'Branding Corporativo' },
             { id: Date.now() + 12, img: 'https://i.imgur.com/kSj4EA3.png', title: 'Ilustración Digital' }
         ]
