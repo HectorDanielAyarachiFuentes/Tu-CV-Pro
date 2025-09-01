@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         portfolio: [
             { id: Date.now() + 10, img: 'https://github.com/HectorDanielAyarachiFuentes/Tu-CV-Pro/blob/main/img/portafolio-img.jpeg?raw=true', title: 'Diseño de App Móvil' },
-            { id: Date.now() + 11, img: 'https://i.imgur.com/h564P2c.png', title: 'Branding Corporativo' },
-            { id: Date.now() + 12, img: 'https://i.imgur.com/kSj4EA3.png', title: 'Ilustración Digital' }
+            { id: Date.now() + 11, img: 'https://github.com/HectorDanielAyarachiFuentes/Tu-CV-Pro/blob/main/img/portafolio-4.png?raw=true', title: 'Branding Corporativo' },
+            { id: Date.now() + 12, img: 'https://github.com/HectorDanielAyarachiFuentes/Tu-CV-Pro/blob/main/img/portafolio-3.jpeg?raw=true', title: 'Ilustración Digital' }
         ]
     };
 
