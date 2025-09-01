@@ -266,3 +266,47 @@ input[type="color"]::-webkit-color-swatch { border: 2px solid var(--color-border
 
 @media (max-width: 1200px) { .cv-builder-container { grid-template-columns: 400px 1fr; } }
 @media (max-width: 992px) { .cv-builder-container { grid-template-columns: 1fr; } .preview-panel { display: none; } }
+
+/* --- Estilos para la Vista Previa en Miniatura de Plantillas --- */
+
+/* Ajustamos la tarjeta de layout para que la vista previa encaje bien */
+.layout-card {
+    padding: 0.5rem; /* Mantenemos un poco de espacio alrededor */
+    display: flex;
+    flex-direction: column;
+}
+.layout-card p {
+    flex-shrink: 0; /* Evita que el texto se encoja */
+}
+
+/* Eliminamos la imagen estática, ya que se reemplazará por un div */
+.layout-card img {
+    display: none;
+}
+
+/* Contenedor principal de la mini-vista previa */
+.mini-preview-container {
+    width: 100%;
+    aspect-ratio: 210 / 297; /* Proporción de una hoja A4 */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden; /* ¡Muy importante para recortar el CV grande! */
+    background-color: var(--color-white);
+    flex-grow: 1; /* Permite que ocupe el espacio disponible */
+}
+
+/* El CV renderizado dentro del contenedor miniatura */
+.mini-preview-container > div[id="cv-template"] {
+    /* Establecemos un tamaño base grande para un renderizado de alta calidad */
+    width: 840px; /* 4 veces el ancho de una A4 (210mm) */
+    height: 1188px; /* 4 veces el alto de una A4 (297mm) */
+    
+    /* La magia sucede aquí: lo escalamos para que quepa */
+    transform-origin: top left;
+    /* La escala se calcula: ancho de la tarjeta (aprox 120px) / ancho base (840px) ≈ 0.14 */
+    transform: scale(0.145); 
+
+    /* Aseguramos que el contenido no se pueda seleccionar o interactuar */
+    user-select: none;
+    pointer-events: none;
+}
